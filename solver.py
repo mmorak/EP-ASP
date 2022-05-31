@@ -3,7 +3,7 @@
 import datetime
 import string
 
-from gringo import *
+from clingo import *
 
 debug = False 
 planning = False 
@@ -34,24 +34,24 @@ sol_heuristics = [] ## list of solutions, one corresponds to one initial
 strHeuristic = ""
 
 def check_brave(m):
-   result = [x for x in m.atoms(Model.ATOMS)]
-   if debug == True: print result
+   result = [x for x in m.symbols(atoms=True)]
+   if debug == True: print(result)
    _braveCheckModel.append(result) 
 
 def set_brave(m):
-   result = [x for x in m.atoms(Model.ATOMS)]
+   result = [x for x in m.symbols(atoms=True)]
    _braveModel.append(result)
 
 def set_cautious(m):
-   result = [x for x in m.atoms(Model.ATOMS)]
+   result = [x for x in m.symbols(atoms=True)]
    _cautiousModel.append(result)
        
 def get_setat(m, prefs):
    atset = []  
-   for x in m.atoms(Model.ATOMS): 
-      if x.name().find(prefs, 0, 2) == 0:          
+   for x in m.symbols(atoms=True): 
+      if x.name.find(prefs, 0, 2) == 0:          
          atset.append(x) 
-   if debug == True: print atset      
+   if debug == True: print(atset)      
    return atset 
 
 def get_setat_from_string(strList, prefs):
@@ -59,17 +59,17 @@ def get_setat_from_string(strList, prefs):
     for x in strList:
         if x.find(prefs, 0, 2) == 0:
             atset.append(x)
-    if debug == True: print atset
+    if debug == True: print(atset)
     return atset
 
 def print_wv(m):
 
    global  cntWv 
 
-   if debug == True : print m 
+   if debug == True : print(m) 
    atset = []  
    cntWv = cntWv + 1
-   for x in m.atoms(Model.ATOMS): 
+   for x in m.symbols(atoms=True): 
       xname = str(x)  
       if  xname.find('k1_', 0, 3) == 0 :  True   
       elif xname.find('k0_', 0, 3) == 0 : True   
@@ -80,21 +80,21 @@ def print_wv(m):
       else:  atset.append(x)
    
    if debug == True or planning != True:
-      print "Belief set of world view:  ",  cntWv, '\n', atset, "\n"
+      print("Belief set of world view:  ",  cntWv, '\n', atset, "\n")
    else:
-      print "Belief set of world view:  ",  cntWv, '\n'
+      print("Belief set of world view:  ",  cntWv, '\n')
 #if debug == True : print atset, "\n"
    return 
    
 def check_bad(m):
-   if debug==True: print "First pass bad ", m
+   if debug==True: print("First pass bad ", m)
    result = get_setat(m, "bad") 
    badGuesses.append(result) 
    return 
       
     
 def collect(m): 
-   if debug == True: print "In collecting ..",   m
+   if debug == True: print("In collecting ..",   m)
    answer1 = get_setat(m, "m0")
    answer1 = answer1 + get_setat(m, "k1")
    answer2 = get_setat(m, "m1")
@@ -104,8 +104,8 @@ def collect(m):
 
 def collect_eiter(m):
     global _sModels
-    if debug == True: print "In collecting model for eiter's semantics.."
-    stable_model = result = [str(x) for x in m.atoms(Model.ATOMS)]
+    if debug == True: print("In collecting model for eiter's semantics..")
+    stable_model = result = [str(x) for x in m.symbols(atoms=True)]
     k0_m1_set = get_setat(m, "m1")
     k0_m1_set = k0_m1_set + get_setat(m, "k0")
     _sModels = [] #reset _sModels to empty set
@@ -128,11 +128,11 @@ def check_k1_m0(prg, cur_model ):
      wv_chek1 = ''
      count_1 = 0
 
-     if debug == True : print "***** Checking for first condition (k1_ and m0_) ********"
+     if debug == True : print("***** Checking for first condition (k1_ and m0_) ********")
      
      model1 = sModels[cur_model]
      if len(model1) == 0 : 
-          if debug == True : print "Nothing to be checked for first pass!"
+          if debug == True : print("Nothing to be checked for first pass!")
           return False
 
      for i in range(0, len(model1)) :
@@ -144,23 +144,23 @@ def check_k1_m0(prg, cur_model ):
           wv_chek1 = wv_chek1 + 'nok_'+str(cur_model)+ ' :- bad_'+str(cur_model)+ '('+str(i)+')' + ',  _check1(' + str(cur_model) +').\n ' 
      
      wv_chek1 = wv_chek1 + ' :- not nok_'+str(cur_model)+ ',  _check1(' + str(cur_model) +').\n '
-     if debug == True: print "Check for first condition  \n ", wv_chek1  
-     prg.assign_external(Fun("_check1", [cur_model]), True)
+     if debug == True: print("Check for first condition  \n ", wv_chek1)  
+     prg.assign_external(Function("_check1", [cur_model]), True)
 
      m_name = "check1("+  str(cur_model)   +")"    
      prg.add(m_name, [], wv_chek1)
      prg.ground([(m_name, [])])
      
      retValidity = prg.solve(None, on_model = check_bad)
-     if retValidity ==  SolveResult.SAT: 
-          if debug == True : print 'First check does not pass!', cur_model
+     if retValidity.satisfiable:
+          if debug == True : print('First check does not pass!', cur_model)
           
           retVal = True
      else:      
-          if debug == True : print 'Passed first check ===================!', cur_model
+          if debug == True : print('Passed first check ===================!', cur_model)
           retVal = False
 
-     prg.assign_external(Fun("_check1", [cur_model]), False)
+     prg.assign_external(Function("_check1", [cur_model]), False)
      
      return retVal
 
@@ -172,10 +172,10 @@ def check_k0_m1(prg, cur_model ):
      count_2 = 0
      model2 = sModels[cur_model+1]
 
-     if debug == True : print "***** Checking for second condition (k0_ and m1_) ********"
+     if debug == True : print("***** Checking for second condition (k0_ and m1_) ********")
 
      if len(model2) == 0: 
-          if debug == True : print "Nothing to be checked for second pass!"
+          if debug == True : print("Nothing to be checked for second pass!")
           return False
      
      for i in range(0, len(model2)) :
@@ -187,50 +187,50 @@ def check_k0_m1(prg, cur_model ):
      #     wv_chek2 = wv_chek2 + 'n2ok_'+str(cur_model)+ ' :- not ok_'+str(cur_model)+ '(' + str(i) +')' + ',  _check2(' + str(cur_model) +').\n ' 
      # wv_chek2 = wv_chek2 + ' :- not n2ok_'+str(cur_model)+ ',  _check2(' + str(cur_model) +').\n '
      
-     if debug == True: print "Check for second condition  \n ", wv_chek2  
+     if debug == True: print("Check for second condition  \n ", wv_chek2)  
        
-     prg.assign_external(Fun("_check2", [cur_model]), True)
+     prg.assign_external(Function("_check2", [cur_model]), True)
 
      m_name = "check2("+  str(cur_model)   +")"    
      prg.add(m_name, [], wv_chek2)
      prg.ground([(m_name, [])])
 
-     prg.conf.solve.enum_mode = "brave"
-     prg.conf.solve.models = 0
+     prg.configuration.solve.enum_mode = "brave"
+     prg.configuration.solve.models = 0
      
      retValidity = prg.solve(None, on_model = check_brave)
     
-     if debug == True : print _braveCheckModel[::-1][0]
+     if debug == True : print(_braveCheckModel[::-1][0])
      
      valueCheck = [str(x) for x in _braveCheckModel[::-1][0]]  
      
      if debug == True : 
-          print "************\n",valueCheck,"\n****************\n"  
+          print("************\n",valueCheck,"\n****************\n")  
      
-     prg.conf.solve.enum_mode = "auto"
+     prg.configuration.solve.enum_mode = "auto"
 
-     prg.assign_external(Fun("_check2", [cur_model]), False)
+     prg.assign_external(Function("_check2", [cur_model]), False)
  
      retVal = False 
      
      for i in range(0, count_2) :      
           need =  str('ok_'+str(cur_model)+ '(' + str(i) +')')  
-          if debug == True : print need 
+          if debug == True : print(need) 
           if (need in valueCheck) == False: 
-               if debug == True : print 'Second check does not pass!', cur_model
+               if debug == True : print('Second check does not pass!', cur_model)
                retVal = True
                break 
           else: 
                if debug == True : 
-                    print "Index >>>   ", valueCheck.index(need)   
+                    print("Index >>>   ", valueCheck.index(need))   
      
      if retVal == False:
-         if debug == True: print 'Passed second check ===================!', cur_model
+         if debug == True: print('Passed second check ===================!', cur_model)
          if debug == True or planning != True:
-            prg.conf.solve.models = 0
+            prg.configuration.solve.models = 0
             cntWv = 0
             prg.solve(None, on_model =  print_wv)
-            prg.conf.solve.models = 1
+            prg.configuration.solve.models = 1
             retVal = False
      return retVal
 
@@ -245,7 +245,7 @@ def  model_constraints(prg, model, cur_model) :
 
      str_not_model = str_not_model +'.'
 
-     if debug == True: print "Constraints on model    ++++\n", cur_model, str_not_model 
+     if debug == True: print("Constraints on model    ++++\n", cur_model, str_not_model) 
                  
      no_m_name = "nomodel("+ m_name +")"
      prg.add(no_m_name, [], str_not_model)
@@ -261,7 +261,7 @@ def  model_requirement(prg, model, cur_model) :
      for i in range(0, len(model)) :
             str_model = str_model + ':- not ' + str(model[i])+ ',  _model(' + str(cur_model) +').\n '
             
-     if debug == True: print "Model needs to contain ++++\n", str_model
+     if debug == True: print("Model needs to contain ++++\n", str_model)
      m_name = "model("+ m_name +")"    
      prg.add(m_name, [], str_model)
      prg.ground([(m_name, [])])
@@ -272,9 +272,9 @@ def  model_requirement(prg, model, cur_model) :
 def compute_wv(prg, cur_model):  
         
      if debug == True: 
-          print "****************************************"
-          print sModels[cur_model], sModels[cur_model+1] 
-          print "****************************************"
+          print("****************************************")
+          print(sModels[cur_model], sModels[cur_model+1]) 
+          print("****************************************")
                     
      m_name = str(cur_model)
      prg.ground([("volatile",[cur_model])])
@@ -284,21 +284,21 @@ def compute_wv(prg, cur_model):
      model = model1 + model2
       
      model_requirement(prg, model, cur_model) 
-     prg.assign_external(Fun("_model", [cur_model]), True)
+     prg.assign_external(Function("_model", [cur_model]), True)
      
-     if planning == True:     prg.assign_external(Fun("_goal", []), False)
+     if planning == True:     prg.assign_external(Function("_goal", []), False)
      
      # checking k1 and m0 
      
      retValidity = check_k1_m0(prg, cur_model)
      
-     if debug == True: print "Return from check k1 & m0: ", retValidity
+     if debug == True: print("Return from check k1 & m0: ", retValidity)
      
      if retValidity == False:  retValidity = check_k0_m1(prg, cur_model) 
         
-     if planning == True:      prg.assign_external(Fun("_goal", []), True)
+     if planning == True:      prg.assign_external(Function("_goal", []), True)
     
-     prg.assign_external(Fun("_model", [cur_model]), False)
+     prg.assign_external(Function("_model", [cur_model]), False)
     
      model_constraints(prg, model, cur_model)
           
@@ -311,22 +311,22 @@ def is_k_or_m(atom):
 
 def set_brave_cautious(prg):
     
-    prg.conf.solve.enum_mode = "brave"
+    prg.configuration.solve.enum_mode = "brave"
     ret = prg.solve(None, on_model = set_brave)
-    if ret == SolveResult.UNSAT: return ret
+    if ret.unsatisfiable: return ret
 
-    prg.conf.solve.enum_mode = "cautious"
+    prg.configuration.solve.enum_mode = "cautious"
     ret = prg.solve(None, on_model = set_cautious)
-    if ret == SolveResult.UNSAT: return ret
+    if ret.unsatisfiable: return ret
     
-    prg.conf.solve.enum_mode = "auto"
+    prg.configuration.solve.enum_mode = "auto"
 
     braveModel = [str(x) for x in _braveModel[::-1][0]]
     cautiousModel = [str(x) for x in _cautiousModel[::-1][0]]
     
     if debug == True   : 
-       print 'Brave consequences: \n', braveModel  
-       print 'Cautious consequences: \n', cautiousModel
+       print('Brave consequences: \n', braveModel)  
+       print('Cautious consequences: \n', cautiousModel)
 
     # set cautious consequence
     c_str = ''
@@ -338,7 +338,7 @@ def set_brave_cautious(prg):
           if is_k_or_m(lit) == True :
                c_str = c_str + ':- not '+str(lit)+'. \n'          
       
-    if debug == True: print 'c_str is \n', c_str
+    if debug == True: print('c_str is \n', c_str)
 
     prg.add("constraints", [], c_str)
     prg.ground([("constraints", [])])    
@@ -346,7 +346,7 @@ def set_brave_cautious(prg):
     return ret 
     
 def get(val, default):
-    return val if val != None else default
+    return val.number if val != None else default
 
 def read_params(prg):
     global debug
@@ -383,7 +383,7 @@ def read_params(prg):
     if brave_cautious_id == 1: brave_cautious = True
     if goal_directed_id == 1: goal_directed = True
     
-    print "Parameters: debug = ",debug, " planning = ", planning, "heuristic = ", heuristic , "initials_only = ", initials_only, " eiter = ", eiter, " brave_cautious = ", brave_cautious," goal_directed_mode = ", goal_directed," and nmax = ", nmax
+    print("Parameters: debug = ",debug, " planning = ", planning, "heuristic = ", heuristic , "initials_only = ", initials_only, " eiter = ", eiter, " brave_cautious = ", brave_cautious," goal_directed_mode = ", goal_directed," and nmax = ", nmax)
 
 def all_model(m) :
     global nModels
@@ -410,7 +410,7 @@ def main(prg):
             prg.ground([("problem",[])])
             add_planning(prg)
             prg.ground([("planning", [])])
-            prg.assign_external(Fun("_goal", []), True)
+            prg.assign_external(Function("_goal", []), True)
     else:
         prg.ground([("base", [])])
                    
@@ -419,18 +419,18 @@ def main(prg):
     if initials_only == True:
         end_time = datetime.datetime.now()
         elapsed = end_time - start_time
-        print "Elapsed time: ", elapsed
+        print("Elapsed time: ", elapsed)
         return
     
    
     # calculate brace and cautious consequences
     if brave_cautious == True:
         ret = set_brave_cautious(prg)
-        if ret == SolveResult.UNSAT:
-            print "Program unsolvable!!!"
+        if ret.unsatisfiable:
+            print("Program unsolvable!!!")
             return
     else:
-        ret = SolveResult.SAT
+        ret = None
 
     #add volatile_optimizing program if computing eiter's semantics
     if eiter == 1: add_volatile_optimizing(prg)
@@ -443,31 +443,31 @@ def main(prg):
     add_volatie(prg)
 
     cur_model = 0
-    while ret == SolveResult.SAT:
+    while ret is None or ret.satisfiable:
         
         if checked == True:
-              prg.conf.solve.models = 0
+              prg.configuration.solve.models = 0
               prg.solve(None, on_model = all_model)
-              print "No of models = ", nModels
+              print("No of models = ", nModels)
               nModels = 0
     
         # compute a model
-        if debug == True: print "----------Start Pick One Answer Set---------"
+        if debug == True: print("----------Start Pick One Answer Set---------")
         if goal_directed == 1:
-              prg.assign_external(Fun("_goal", []), True)
+              prg.assign_external(Function("_goal", []), True)
                   
         if eiter == 1:
               ret = compute_optimize_answerset(prg, cur_model)
         else:
-              prg.conf.solve.models = 1
+              prg.configuration.solve.models = 1
               ret = prg.solve(None, on_model = collect)
 
         if goal_directed == 1:
-              prg.assign_external(Fun("_goal", []), False)
+              prg.assign_external(Function("_goal", []), False)
 
-        if debug == True: print "----------Done Pick One Answer Set with Optimization---------"
+        if debug == True: print("----------Done Pick One Answer Set with Optimization---------")
 
-        if ret == SolveResult.UNSAT:
+        if ret.unsatisfiable:
               wv_ok = False 
               break  
          
@@ -477,42 +477,42 @@ def main(prg):
         if wv_ok == True : break 
 
         if (cur_model > 2*nmax) and (nmax > 0): 
-               print "Exceed the number of maximal guesses!" 
+               print("Exceed the number of maximal guesses!") 
                break  
         # next index in list of models sModels 
         cur_model = cur_model + 2
 
-    print "Number of guesses checked: ",  cur_model/2
+    print("Number of guesses checked: ",  cur_model/2)
     
-    if debug == True:  print sModels
+    if debug == True:  print(sModels)
     
     if wv_ok :
         if planning == True:
-            if debug == True: print "K & M atoms: ", sModels[cur_model], sModels[cur_model+1]
-            if debug == False: print "K & M atoms: ", sModels[cur_model+1]
-        else: print "K & M atoms: ", sModels[cur_model], sModels[cur_model+1]
+            if debug == True: print("K & M atoms: ", sModels[cur_model], sModels[cur_model+1])
+            if debug == False: print("K & M atoms: ", sModels[cur_model+1])
+        else: print("K & M atoms: ", sModels[cur_model], sModels[cur_model+1])
     elif (cur_model < 2*nmax):
-         print "Program has no world view!"     
+         print("Program has no world view!")     
 
     end_time = datetime.datetime.now()
     
     elapsed = end_time - start_time
     
-    print "Elapsed time: ", elapsed
+    print("Elapsed time: ", elapsed)
 
 
 
 def set_initials(m):
     global inits
     result = []
-    for x in m.atoms(Model.ATOMS):
+    for x in m.symbols(atoms=True):
         xname = str(x)
         if xname.find('holds(',0,6) != -1 and xname.find(',0)',len(xname)-3) != -1: result.append(x)
         if xname.find('-holds(',0,7) != -1 and xname.find(',0)',len(xname)-3) != -1: result.append(x)
         if xname.find('noholds(',0,8) != -1 and xname.find(',0)',len(xname)-3) != -1: result.append(x)
     
     if debug == True:
-        print result
+        print(result)
     inits.append(result)
 
 
@@ -520,14 +520,14 @@ def set_solutions_heuristic(m):
     global strHeuristic
     global sol_heuristics
     result = []
-    for x in m.atoms(Model.ATOMS):
+    for x in m.symbols(atoms=True):
         xname = str(x)
         if xname.find('occurs(',0,7) != -1:
             result.append(x)
             strHeuristic = strHeuristic + ':- not 1 {m1_' + xname[:-3] + ',T) : step(T)}.\n'
             #strHeuristic = strHeuristic + ':- not 1 {' + xname[:-3] + ',T) : step(T)}.\n'
     if debug == True:
-        print strHeuristic
+        print(strHeuristic)
     sol_heuristics.append(result)
 
 
@@ -537,51 +537,51 @@ def compute_heuristic(prg):
     
     #calculate initial states
     prg.ground([("initial",[])])
-    prg.assign_external(Fun("_heuristic", []), True)
-    prg.conf.solve.enum_mode= "auto"
-    prg.conf.solve.models = 0
+    prg.assign_external(Function("_heuristic", []), True)
+    prg.configuration.solve.enum_mode= "auto"
+    prg.configuration.solve.models = 0
     prg.solve(None, on_model = set_initials)
     
     if debug == 1:
-        print "####################################"
-        print "initial states include following atoms:"
-        print inits
-        print "####################################"
+        print("####################################")
+        print("initial states include following atoms:")
+        print(inits)
+        print("####################################")
     
     
     prg.ground([("problem",[])])
     add_planning(prg)
     prg.ground([("planning", [])])
 
-    prg.assign_external(Fun("_goal", []), True)
+    prg.assign_external(Function("_goal", []), True)
     cur_init = 1
     for x in inits:
         prg.ground([("volatile_init",[cur_init])])
-        prg.assign_external(Fun("_init",[cur_init]),True)
+        prg.assign_external(Function("_init",[cur_init]),True)
         strCons = ''
         for y in x:
             strCons = strCons + ':- _useheuristic, not ' + str(y) + ', _init(' + str(cur_init) + ').\n'
         
         if debug == 1:
-            print "strCons is "
-            print strCons
-            print '--------------'
+            print("strCons is ")
+            print(strCons)
+            print('--------------')
         strAddedProg = 'cons' + str(cur_init)
         prg.add(strAddedProg, [], strCons)
         prg.ground([(strAddedProg, [])])
-        prg.conf.solve.models = 1
-        prg.assign_external(Fun("_useheuristic", []), True)
+        prg.configuration.solve.models = 1
+        prg.assign_external(Function("_useheuristic", []), True)
         prg.solve(None, on_model = set_solutions_heuristic)
-        prg.assign_external(Fun("_useheuristic", []), False)
-        prg.release_external(Fun("_init",[cur_init]))
+        prg.assign_external(Function("_useheuristic", []), False)
+        prg.release_external(Function("_init",[cur_init]))
         cur_init = cur_init + 1
 
-    prg.release_external(Fun("_heuristic", []))
+    prg.release_external(Function("_heuristic", []))
     if debug == True:
-        print "--------strHeuristic is: --------------"
-        print strHeuristic
-        print "----------------------"
-    prg.conf.solve.models = 0
+        print("--------strHeuristic is: --------------")
+        print(strHeuristic)
+        print("----------------------")
+    prg.configuration.solve.models = 0
 
 
 def add_heuristic(prg):
@@ -590,9 +590,9 @@ def add_heuristic(prg):
     prg.ground([("heuristic_part",[])])
 
 def print_model(m):
-    print "%%%%%%%%%%%%%%%%%%"
-    print m
-    print "%%%%%%%%%%%%%%%%%%"
+    print("%%%%%%%%%%%%%%%%%%")
+    print(m)
+    print("%%%%%%%%%%%%%%%%%%")
 
 def is_k0_or_m1(atom):
     strAtom = str(atom)
@@ -611,18 +611,18 @@ def get_k0m1_atom_signatures(prg):
 def compute_optimize_answerset(prg, cur_model):
     global sModels
     global _k0_m1_set
-    prg.conf.solve.models = 1
+    prg.configuration.solve.models = 1
     ret = prg.solve(None, on_model = collect_eiter)
-    if ret == SolveResult.UNSAT:
+    if ret.unsatisfiable:
         return ret
     
     
     _k0_m1_set = get_k0m1_atom_signatures(prg)
     cnt = 0
 
-    while ret != SolveResult.UNSAT:
+    while not ret.unsatisfiable:
         prg.ground([("volatile_optimizing",[cur_model,cnt])])
-        prg.assign_external(Fun("_model_optimizing", [cur_model,cnt]), True)
+        prg.assign_external(Function("_model_optimizing", [cur_model,cnt]), True)
         stable_model = [str(x) for x in _sModels[0]]
         k0_m1_set = [str(x) for x in _sModels[1]]
 
@@ -630,41 +630,41 @@ def compute_optimize_answerset(prg, cur_model):
         not_k0_m1_set = [(x,y) for (x,y) in _k0_m1_set if x not in s]
 
         if debug == True:
-            print "stable model is ", stable_model
-            print "k0_m1_set is ", k0_m1_set
-            print "not k0_m1_set is", not_k0_m1_set
+            print("stable model is ", stable_model)
+            print("k0_m1_set is ", k0_m1_set)
+            print("not k0_m1_set is", not_k0_m1_set)
         
         #compute the answer set which is optimized superset of k0_m1_set
         if not_k0_m1_set == []:
-            if debug == True: print 'not_k0_m1_set is empty!!!! Then it is maximal subset!!!!!'
+            if debug == True: print('not_k0_m1_set is empty!!!! Then it is maximal subset!!!!!')
             answer1 = get_setat_from_string(stable_model, "m0")
             answer1 = answer1 + get_setat_from_string(stable_model, "k1")
             answer2 = get_setat_from_string(stable_model, "m1")
             answer2 = answer2 + get_setat_from_string(stable_model, "k0")
             sModels.append(answer1)
             sModels.append(answer2)
-            prg.assign_external(Fun("_model_optimizing", [cur_model,cnt]), False)
-            return SolveResult.SAT
+            prg.assign_external(Function("_model_optimizing", [cur_model,cnt]), False)
+            return ret.satisfiable
         
         #checking if the current set of k0_m1_set is the optimized w.r.t maximal subset of k0_, m1_ atoms
         model_requirement_optimizing(prg,k0_m1_set,cur_model,cnt)
         add_rule_optimizing(prg, not_k0_m1_set,cur_model,cnt)
 
-        prg.conf.solve.models = 1
+        prg.configuration.solve.models = 1
         ret = prg.solve(None, on_model = collect_eiter)
-        prg.assign_external(Fun("_model_optimizing", [cur_model,cnt]), False)
-        if ret == SolveResult.UNSAT:
-            if debug == True: print "--------->optimal stable model"
+        prg.assign_external(Function("_model_optimizing", [cur_model,cnt]), False)
+        if ret.unsatisfiable:
+            if debug == True: print("--------->optimal stable model")
             answer1 = get_setat_from_string(stable_model, "m0")
             answer1 = answer1 + get_setat_from_string(stable_model, "k1")
             answer2 = get_setat_from_string(stable_model, "m1")
             answer2 = answer2 + get_setat_from_string(stable_model, "k0")
             sModels.append(answer1)
             sModels.append(answer2)
-            return SolveResult.SAT
+            return ret.satisfiable
         cnt = cnt + 1
-        if debug == True: print "---------->not optimal stable model"
-    return SolveResult.SAT
+        if debug == True: print("---------->not optimal stable model")
+    return ret.satisfiable
 
 def generate_abstract_atom(name,arity):
     strAtom = name
@@ -684,7 +684,7 @@ def model_requirement_optimizing(prg, model, cur_model,cnt) :
     for i in range(0, len(model)) :
         str_model = str_model + ':- not ' + str(model[i])+ ',  _model_optimizing(' + str(cur_model) + ',' + str(cnt) + ').\n'
         str_model = str_model + 'before(' + str(cur_model) + ',' + str(cnt) + ',' + str(model[i])+ ') :-  _model_optimizing(' + str(cur_model) + ',' + str(cnt) +  ').\n'
-    if debug == True: print "Model needs to contain ++++\n", str_model
+    if debug == True: print("Model needs to contain ++++\n", str_model)
     m_name = "model_optimizing("+ m_name +"," + str(cnt)+ ")"
     prg.add(m_name, [], str_model)
     prg.ground([(m_name, [])])
@@ -697,7 +697,7 @@ def add_rule_optimizing(prg, not_k0_m1_set,cur_model,cnt):
         strRules = strRules + 'better(' + str(cur_model) + ',' + str(cnt) + ') :- ' + temp + ', not before(' + str(cur_model) + ','+ str(cnt) + ', '+ temp + ')' + ',  _model_optimizing(' + str(cur_model) + ',' + str(cnt) + ').\n'
 
     strRules = strRules + ':- not better(' + str(cur_model) + ',' + str(cnt) + ')' + ',  _model_optimizing(' + str(cur_model) + ',' + str(cnt) + ').\n'
-    if debug == True: print 'strRules are: \n', strRules
+    if debug == True: print('strRules are: \n', strRules)
     m_name = "model_optimize("+ str(cur_model) +"," + str(cnt)+ ")"
     prg.add(m_name, [], strRules)
     prg.ground([(m_name, [])])
