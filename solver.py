@@ -456,11 +456,13 @@ def main(prg):
         if goal_directed == 1:
               prg.assign_external(Function("_goal", []), True)
                   
-        if eiter == 1:
-              ret = compute_optimize_answerset(prg, cur_model)
-        else:
-              prg.configuration.solve.models = 1
-              ret = prg.solve(None, on_model = collect)
+        # if eiter == 1:
+        #       ret = compute_optimize_answerset(prg, cur_model)
+        # else:
+        #       prg.configuration.solve.models = 1
+        #       ret = prg.solve(None, on_model = collect)
+        prg.configuration.solve.models = 1
+        ret = prg.solve(None, on_model = collect)
 
         if goal_directed == 1:
               prg.assign_external(Function("_goal", []), False)
@@ -601,7 +603,7 @@ def is_k0_or_m1(atom):
 
 def get_k0m1_atom_signatures(prg):
     signatures = []    
-    for (name, arity) in prg.domains.signatures():
+    for (name, arity, _) in prg.symbolic_atoms.signatures:
         if is_k0_or_m1(name):
             temp = (name, arity)
             signatures.append(temp)

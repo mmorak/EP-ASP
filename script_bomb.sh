@@ -9,20 +9,20 @@ done
 
 
 
-clingo solver.py btc_conf.lp -c np=30 -c len=1 -c length=60 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max =0 -q2 --outf=3 > bombProblems/b1tc_30.txt
-clingo solver.py btc_conf.lp -c np=30 -c len=1 -c length=60 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max =1 -q2 --outf=3 > bombProblems/eiter_b1tc_30.txt
+clingo solver.py btc_conf.lp -c np=30 -c len=1 -c length=60 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max=0 -q2 --outf=3 > bombProblems/b1tc_30.txt
+clingo solver.py btc_conf.lp -c np=30 -c len=1 -c length=60 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max=1 -q2 --outf=3 > bombProblems/eiter_b1tc_30.txt
 echo "Done b1tc 30"
 
-clingo solver.py btc_conf.lp -c np=50 -c len=1 -c length=100 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max =0 -q2 --outf=3 > bombProblems/b1tc_50.txt
-clingo solver.py btc_conf.lp -c np=50 -c len=1 -c length=100 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max =1 -q2 --outf=3 > bombProblems/eiter_b1tc_50.txt
+clingo solver.py btc_conf.lp -c np=50 -c len=1 -c length=100 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max=0 -q2 --outf=3 > bombProblems/b1tc_50.txt
+clingo solver.py btc_conf.lp -c np=50 -c len=1 -c length=100 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max=1 -q2 --outf=3 > bombProblems/eiter_b1tc_50.txt
 echo "Done b1tc 50"
 
-clingo solver.py btc_conf.lp -c np=100 -c len=1 -c length=200 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max =0 -q2 --outf=3 > bombProblems/b1tc_100.txt
-clingo solver.py btc_conf.lp -c np=100 -c len=1 -c length=200 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max =1 -q2 --outf=3 > bombProblems/eiter_b1tc_100.txt
+clingo solver.py btc_conf.lp -c np=100 -c len=1 -c length=200 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max=0 -q2 --outf=3 > bombProblems/b1tc_100.txt
+clingo solver.py btc_conf.lp -c np=100 -c len=1 -c length=200 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max=1 -q2 --outf=3 > bombProblems/eiter_b1tc_100.txt
 echo "Done b1tc 100"
 
-clingo solver.py btc_conf.lp -c np=150 -c len=1 -c length=300 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max =0 -q2 --outf=3 > bombProblems/b1tc_150.txt
-clingo solver.py btc_conf.lp -c np=150 -c len=1 -c length=300 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max =1 -q2 --outf=3 > bombProblems/eiter_b1tc_150.txt
+clingo solver.py btc_conf.lp -c np=150 -c len=1 -c length=300 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max=0 -q2 --outf=3 > bombProblems/b1tc_150.txt
+clingo solver.py btc_conf.lp -c np=150 -c len=1 -c length=300 -c planning=1 -c heuristic=1 -c debug=0 -c initials_only=0 -c max=1 -q2 --outf=3 > bombProblems/eiter_b1tc_150.txt
 echo "Done b1tc 150"
 
 
