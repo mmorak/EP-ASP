@@ -1,0 +1,1 @@
+Parameters: debug =  False  planning =  True heuristic =  True initials_only =  False  eiter =  False  brave_cautious =  False  goal_directed_mode =  False  and nmax =  1000
