@@ -1,0 +1,518 @@
+eligible01.elps.elp:4:16-29: info: atom does not occur in any rule head:
+  minority(X_G)
+
+eligible01.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible01.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible01.elps.elp:12:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible01.elps.elp:13:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible01.elps.elp:19:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible01.elps.elp:20:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible01.elps.elp:4:16-29: info: atom does not occur in any rule head:
+  minority(X_G)
+
+eligible01.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible01.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible01.elps.elp:12:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible01.elps.elp:13:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible01.elps.elp:19:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible01.elps.elp:20:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151957 and 1714151956
+Time: problem 01 --- 1
+eligible02.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible02.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible02.elps.elp:15:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible02.elps.elp:16:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible02.elps.elp:22:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible02.elps.elp:23:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible02.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible02.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible02.elps.elp:15:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible02.elps.elp:16:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible02.elps.elp:22:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible02.elps.elp:23:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151957 and 1714151957
+Time: problem 02 --- 0
+eligible03.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible03.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible03.elps.elp:17:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible03.elps.elp:18:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible03.elps.elp:24:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible03.elps.elp:25:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible03.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible03.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible03.elps.elp:17:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible03.elps.elp:18:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible03.elps.elp:24:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible03.elps.elp:25:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151957 and 1714151957
+Time: problem 03 --- 0
+eligible04.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible04.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible04.elps.elp:20:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible04.elps.elp:21:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible04.elps.elp:27:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible04.elps.elp:28:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible04.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible04.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible04.elps.elp:20:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible04.elps.elp:21:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible04.elps.elp:27:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible04.elps.elp:28:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151957 and 1714151957
+Time: problem 04 --- 0
+eligible05.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible05.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible05.elps.elp:22:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible05.elps.elp:23:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible05.elps.elp:29:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible05.elps.elp:30:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible05.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible05.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible05.elps.elp:22:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible05.elps.elp:23:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible05.elps.elp:29:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible05.elps.elp:30:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151957 and 1714151957
+Time: problem 05 --- 0
+eligible06.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible06.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible06.elps.elp:24:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible06.elps.elp:25:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible06.elps.elp:31:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible06.elps.elp:32:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible06.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible06.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible06.elps.elp:24:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible06.elps.elp:25:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible06.elps.elp:31:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible06.elps.elp:32:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151958 and 1714151957
+Time: problem 06 --- 1
+eligible07.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible07.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible07.elps.elp:27:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible07.elps.elp:28:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible07.elps.elp:34:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible07.elps.elp:35:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible07.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible07.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible07.elps.elp:27:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible07.elps.elp:28:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible07.elps.elp:34:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible07.elps.elp:35:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151958 and 1714151958
+Time: problem 07 --- 0
+eligible08.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible08.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible08.elps.elp:29:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible08.elps.elp:30:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible08.elps.elp:36:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible08.elps.elp:37:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible08.elps.elp:5:17-30: info: atom does not occur in any rule head:
+  (-fairGPA(X_G))
+
+eligible08.elps.elp:5:31-44: info: atom does not occur in any rule head:
+  (-highGPA(X_G))
+
+eligible08.elps.elp:29:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible08.elps.elp:30:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible08.elps.elp:36:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible08.elps.elp:37:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151958 and 1714151958
+Time: problem 08 --- 0
+eligible09.elps.elp:32:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible09.elps.elp:33:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible09.elps.elp:39:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible09.elps.elp:40:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible09.elps.elp:32:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible09.elps.elp:33:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible09.elps.elp:39:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible09.elps.elp:40:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151959 and 1714151958
+Time: problem 09 --- 1
+eligible10.elps.elp:36:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible10.elps.elp:37:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible10.elps.elp:43:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible10.elps.elp:44:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible10.elps.elp:36:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible10.elps.elp:37:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible10.elps.elp:43:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible10.elps.elp:44:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151965 and 1714151959
+Time: problem 10 --- 6
+eligible11.elps.elp:39:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible11.elps.elp:40:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible11.elps.elp:46:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible11.elps.elp:47:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible11.elps.elp:39:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible11.elps.elp:40:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible11.elps.elp:46:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible11.elps.elp:47:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151969 and 1714151965
+Time: problem 11 --- 4
+eligible12.elps.elp:42:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible12.elps.elp:43:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible12.elps.elp:49:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible12.elps.elp:50:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible12.elps.elp:42:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible12.elps.elp:43:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible12.elps.elp:49:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible12.elps.elp:50:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151973 and 1714151969
+Time: problem 12 --- 4
+eligible13.elps.elp:44:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible13.elps.elp:45:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible13.elps.elp:51:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible13.elps.elp:52:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible13.elps.elp:44:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible13.elps.elp:45:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible13.elps.elp:51:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible13.elps.elp:52:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714151981 and 1714151974
+Time: problem 13 --- 7
+eligible14.elps.elp:47:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible14.elps.elp:48:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible14.elps.elp:54:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible14.elps.elp:55:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible14.elps.elp:47:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible14.elps.elp:48:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible14.elps.elp:54:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible14.elps.elp:55:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714152043 and 1714151981
+Time: problem 14 --- 62
+eligible15.elps.elp:49:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible15.elps.elp:50:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible15.elps.elp:56:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible15.elps.elp:57:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible15.elps.elp:49:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible15.elps.elp:50:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible15.elps.elp:56:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible15.elps.elp:57:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714152131 and 1714152043
+Time: problem 15 --- 88
+eligible16.elps.elp:53:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible16.elps.elp:54:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible16.elps.elp:60:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible16.elps.elp:61:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+eligible16.elps.elp:53:19-36: info: atom does not occur in any rule head:
+  m1_0eligible(X_G)
+
+eligible16.elps.elp:54:19-35: info: atom does not occur in any rule head:
+  m0_eligible(X_G)
+
+eligible16.elps.elp:60:20-36: info: atom does not occur in any rule head:
+  m1_eligible(X_G)
+
+eligible16.elps.elp:61:20-37: info: atom does not occur in any rule head:
+  m0_0eligible(X_G)
+
+Time: 1714152703 and 1714152131
+Time: problem 16 --- 572
